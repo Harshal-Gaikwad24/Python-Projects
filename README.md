@@ -30,15 +30,6 @@ Make sure you have Python installed (version 3.6 or higher recommended).
    git clone https://github.com/Harshal-Gaikwad24/Python Projects.git
    cd slot-machine
 
-Here's a sample runup of the slot machine designed for a small scale game:
-What would you like to deposit ?: $ 100
-Enter no. of lines to bet on (1-4)? 3
-How much would you like to bet on each line? 10
-You are betting $10 on 3 lines. Total bet is equal to:30
-A | D | C | B | A
-C | B | A | A | C
-D | C | C | D | D
-You won 30.
-You won on lines: 2
+
 
 
