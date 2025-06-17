@@ -1,15 +1,15 @@
-#SLOT MACHINE PROJECT Project:
+#SLOT MACHINE PROJECT:
 
 import random
 
-MAX_LINES=4
-MAX_BET=9999
-MIN_BET=1
+MAX_LINES=4     #no. of lines on the machine
+MAX_BET=9999    #maximum amount which can be bet
+MIN_BET=1       #minimum amount which can be bet 
 
-ROWS=5
-COLS=5
+ROWS=5          #no. of rows of symbols in the machine
+COLS=5          #no. of columns of symbols in the machine
 
-symbol_count={
+symbol_count={   #symbols in the machine 
     "A": 2,
     "B": 4,
     "C": 5,
@@ -17,13 +17,14 @@ symbol_count={
 }
 
 
-symbol_value={
+symbol_value={    #values of symbols in the machine 
     "A": 5,
     "B": 3,
     "C": 2,
     "D": 4
 }
 
+#function for checking the winning and winnings on which line of machine
 def check_winnings(columns,lines,bet,values):
     winnings=0
     winning_lines=[]
@@ -39,6 +40,7 @@ def check_winnings(columns,lines,bet,values):
 
     return winnings,winning_lines
 
+#function to spin the slot machine 
 def get_slot_spin(rows, cols, symbols):     #spin the slot machine
     all_symbols=[]
     for symbol, symbol_count in symbols.items():
@@ -57,6 +59,7 @@ def get_slot_spin(rows, cols, symbols):     #spin the slot machine
         columns.append(column)
     return columns
 
+#function to print slot machine
 def print_slot(columns):        #slot column printer
     for row in range(len(columns[0])):
         for i,column in enumerate(columns):
@@ -67,6 +70,7 @@ def print_slot(columns):        #slot column printer
 
         print()
 
+#function to enter the deposit amount for the bet and to check the valid deposition amount
 def deposit():      #deposit funciton
     while True:
         amount=input("What would you like to deposit ?: $ ")
@@ -80,6 +84,7 @@ def deposit():      #deposit funciton
             print('Please enter a valid amount.')
     return amount
 
+#function to determine the no. of lines to be bet on
 def get_number_off_lines():     #function for betting on lines
     while True:
         lines=input("Enter no. of lines to bet on (1-" + str(MAX_LINES)+ ")?")
@@ -94,7 +99,7 @@ def get_number_off_lines():     #function for betting on lines
     return lines
     
 
-#bet function
+#function to define bet amount and check valid bet amount
 def bet_check():
     while True:
         bet_amount=input("How much would you like to bet on each line ?")
@@ -108,7 +113,7 @@ def bet_check():
             print("Please enter a valid amount to bet!")
     return bet_amount
 
-
+#funciton to operate the slot machine
 def spin(balance):
     
     lines=get_number_off_lines()
@@ -130,6 +135,7 @@ def spin(balance):
     print(f"You won on lines:",*winning_lines)
     return winnings-total_bet
 
+
 def main():     #re-run the program thoughout
     balance=deposit()
     while True:
@@ -138,5 +144,7 @@ def main():     #re-run the program thoughout
         if answer=='q':
             break
         balance+=spin(balance)
-    
+
+
+#calling the main function    
 main()
